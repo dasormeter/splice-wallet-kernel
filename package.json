@@ -20,6 +20,7 @@
         "script:generate:ledger": "tsx ./scripts/src/generate-ledger-client.ts",
         "script:generate:protobufs": "tsx ./scripts/src/generate-protobufs.ts",
         "script:generate:tokenstandard": "tsx ./scripts/src/generate-token-standard.ts",
+        "script:generate:tokenstandardclients": "tsx ./scripts/src/generate-token-standard-clients.ts",
         "script:fetch:canton": "tsx ./scripts/src/fetch-canton.ts",
         "script:fetch:tokenstandard": "tsx ./scripts/src/fetch-token-standard.ts",
         "script:fetch:ledger": "tsx ./scripts/src/fetch-ledger-api-specs.ts",
@@ -40,7 +41,6 @@
     ],
     "devDependencies": {
         "@commitlint/config-conventional": "^19.8.1",
-        "@commitlint/config-nx-scopes": "^19.8.1",
         "@eslint/compat": "^1.2.9",
         "@eslint/js": "^9.28.0",
         "@open-rpc/generator": "^2.0.0",
@@ -65,7 +65,7 @@
         "*": "prettier --write --ignore-unknown",
         "*.ts": "eslint"
     },
-    "packageManager": "yarn@4.9.2",
+    "packageManager": "yarn@4.9.4",
     "dependencies": {
         "@nx/js": "^21.3.11",
         "nx": "^21.3.11"
