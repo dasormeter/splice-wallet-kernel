@@ -15,19 +15,6 @@ type JsGetActiveContractsResponse =
     components['schemas']['JsGetActiveContractsResponse']
 type JsGetUpdatesResponse = components['schemas']['JsGetUpdatesResponse']
 
-interface CreateTransferOptions {
-    sender: string
-    receiver: string
-    amount: string
-    // paths to keys
-    publicKey: string
-    privateKey: string
-    instrumentAdmin: string // TODO (#907): replace with registry call
-    instrumentId: string
-    transferFactoryRegistryUrl: string
-    userId: string
-}
-
 export class TokenStandardService {
     constructor(
         private ledgerClient: LedgerClient,
@@ -144,18 +131,14 @@ export class TokenStandardService {
     }
 
     async createTransfer(
-        opts: CreateTransferOptions
+        sender: string,
+        receiver: string,
+        amount: string,
+        instrumentAdmin: string, // TODO (#907): replace with registry call
+        instrumentId: string,
+        transferFactoryRegistryUrl: string
     ): Promise<ExerciseCommand> {
         try {
-            const {
-                sender,
-                receiver,
-                amount,
-                instrumentAdmin,
-                instrumentId,
-                transferFactoryRegistryUrl,
-            } = opts
-
             const ledgerEndOffset = await this.ledgerClient.get(
                 '/v2/state/ledger-end'
             )
